@@ -1,8 +1,17 @@
 import React from 'react'
+import GetWeather from './GetWeather'
 
-const Main = (props) => {
+function Main (props) {
         return (
-            <p>Hello World!</p>
+            <div>
+                <header className="navbar navbar-default container-fluid">
+                    <h1 className="navbar-left">Weather App</h1>
+                    <div className="navbar-right">
+                        <GetWeather />
+                    </div>
+                </header>
+                {props.children}
+            </div>
         )
 }
 
