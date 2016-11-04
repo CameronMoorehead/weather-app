@@ -1,5 +1,5 @@
 import React from 'react'
-import GetWeather from './GetWeather'
+import GetWeatherContainer from '../containers/GetWeatherContainer'
 
 function Main (props) {
         return (
@@ -7,7 +7,7 @@ function Main (props) {
                 <header className="navbar navbar-default container-fluid">
                     <h1 className="navbar-left">Weather App</h1>
                     <div className="navbar-right">
-                        <GetWeather />
+                        <GetWeatherContainer />
                     </div>
                 </header>
                 {props.children}
