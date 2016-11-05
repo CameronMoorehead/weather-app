@@ -9,6 +9,6 @@ export function getFiveDayForecast(city) {
 export function getSingleDayForecast(city) {
     return axios.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&type=accurate&APPID=' + id)
         .then(function(response) {
-            return console.log(response.data)
+            return console.log(response.data.name)
         })
 }

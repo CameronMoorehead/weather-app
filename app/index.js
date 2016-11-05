@@ -3,14 +3,15 @@ import { render } from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 
 import Main from './components/Main'
-import Enter from './components/Enter'
+import GetWeatherContainer from './containers/GetWeatherContainer'
+import Forecast from './components/Forecast'
 
 const Root = () => {
     return (
         <Router history={hashHistory}>
             <Route path='/' component={Main}>
-                <IndexRoute component={Enter} />
-                <Route path='/forecast' />
+                <IndexRoute header='Enter City' component={GetWeatherContainer} />
+                <Route path='/forecast' component={Forecast} />
                 <Route path='/detail' />
             </Route>
         </Router>

@@ -1,6 +1,5 @@
 import React from 'react'
 import GetWeather from '../components/GetWeather'
-import { getFiveDayForecast, getSingleDayForecast } from '../utils/openWeatherHelpers'
 
 class GetWeatherContainer extends React.Component {
     constructor() {
@@ -13,7 +12,14 @@ class GetWeatherContainer extends React.Component {
     }
 
     handleSubmitCity(e) {
-        return getSingleDayForecast(this.state.city)
+        e.preventDefault()
+        // Do i need setState?
+        this.context.router.push({
+            pathname: '/forecast',
+            query: {
+                city: this.state.city
+            }
+        })
     }
 
     handleUpdateCity(e) {
@@ -25,11 +31,17 @@ class GetWeatherContainer extends React.Component {
     render() {
         return (
             <GetWeather
+                header={Object.keys(this.props).length === 0 ?
+                    undefined : this.props.route.header }
                 onSubmitCity={this.handleSubmitCity}
                 onUpdateCity={this.handleUpdateCity}
             />
         )
     }
+}
+
+GetWeatherContainer.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
 
 export default GetWeatherContainer
