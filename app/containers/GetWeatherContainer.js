@@ -15,10 +15,7 @@ class GetWeatherContainer extends React.Component {
         e.preventDefault()
         // Do i need setState?
         this.context.router.push({
-            pathname: '/forecast',
-            query: {
-                city: this.state.city
-            }
+            pathname: '/forecast/' + this.state.city
         })
     }
 
