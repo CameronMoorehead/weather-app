@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import Main from './components/Main'
 import GetWeatherContainer from './containers/GetWeatherContainer'
 import ForecastContainer from './containers/ForecastContainer'
+import Detail from './components/Detail'
 
 const Root = () => {
     return (
@@ -12,7 +13,7 @@ const Root = () => {
             <Route path='/' component={Main}>
                 <IndexRoute header='Enter City' component={GetWeatherContainer} />
                 <Route path='/forecast/:city' component={ForecastContainer} />
-                <Route path='/detail' />
+                <Route path='/detail/:city' component={Detail} />
             </Route>
         </Router>
     )

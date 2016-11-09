@@ -5,9 +5,17 @@ import { getSingleDayForecast, getFiveDayForecast } from '../utils/openWeatherHe
 class ForecastContainer extends React.Component {
     constructor() {
         super()
+        this.handleClickCity = this.handleClickCity.bind(this)
         this.state = {
             weatherData: ""
         }
+    }
+
+    handleClickCity(e) {
+        e.preventDefault()
+        this.context.router.push({
+            pathname: '/detail/' + this.props.routeParams.city
+        })
     }
 
     componentDidMount() {
@@ -29,10 +37,16 @@ class ForecastContainer extends React.Component {
     render() {
         return (
             <Forecast
-                weatherData={this.props.routeParams.city}
+                weatherName={this.props.routeParams.city}
+                weatherData={this.state.weatherData}
+                onClickCity={this.handleClickCity}
             />
         )
     }
+}
+
+ForecastContainer.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
 
 export default ForecastContainer
