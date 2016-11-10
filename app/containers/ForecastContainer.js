@@ -13,8 +13,15 @@ class ForecastContainer extends React.Component {
 
     handleClickCity(e) {
         e.preventDefault()
+        const data = this.state.weatherData[e.currentTarget.id]
         this.context.router.push({
-            pathname: '/detail/' + this.props.routeParams.city
+            pathname: '/detail/' + this.props.routeParams.city,
+            query: {
+                icon: data.weather[0].icon,
+                high: data.temp.max,
+                low: data.temp.min,
+                desc: data.weather[0].description
+            }
         })
     }
 
@@ -37,7 +44,6 @@ class ForecastContainer extends React.Component {
     render() {
         return (
             <Forecast
-                weatherName={this.props.routeParams.city}
                 weatherData={this.state.weatherData}
                 onClickCity={this.handleClickCity}
             />

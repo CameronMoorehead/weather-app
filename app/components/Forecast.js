@@ -19,6 +19,7 @@ class Forecast extends React.Component {
                     className="btn btn-primary"
                     onClick={this.props.onClickCity}
                     style={{marginBottom: "5px", width: "300px"}}
+                    id={key}
                 >
                     <img src={icon} />
                     {day}
@@ -35,6 +36,10 @@ class Forecast extends React.Component {
             </div>
         )
     }
+}
+
+Forecast.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
 
 export default Forecast
