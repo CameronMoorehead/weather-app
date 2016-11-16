@@ -15,7 +15,7 @@ class GetWeatherContainer extends React.Component {
         e.preventDefault()
         // Do i need setState?
         this.context.router.push({
-            pathname: '/forecast/' + this.state.city
+            pathname: '/' + this.state.city
         })
     }
 
@@ -28,8 +28,6 @@ class GetWeatherContainer extends React.Component {
     render() {
         return (
             <GetWeather
-                header={Object.keys(this.props).length === 0 ?
-                    undefined : this.props.route.header }
                 onSubmitCity={this.handleSubmitCity}
                 onUpdateCity={this.handleUpdateCity}
             />

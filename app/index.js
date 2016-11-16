@@ -1,19 +1,16 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
-import Main from './components/Main'
 import GetWeatherContainer from './containers/GetWeatherContainer'
-import ForecastContainer from './containers/ForecastContainer'
-import Detail from './components/Detail'
 
 const Root = () => {
     return (
-        <Router history={hashHistory}>
-            <Route path='/' component={Main}>
+        <Router history={browserHistory}>
+            <Route path='/'>
                 <IndexRoute header='Enter City' component={GetWeatherContainer} />
-                <Route path='/forecast/:city' component={ForecastContainer} />
-                <Route path='/detail/:city' component={Detail} />
+                <Route path='/:city'  />
+                <Route path='/:city/detail'  />
             </Route>
         </Router>
     )

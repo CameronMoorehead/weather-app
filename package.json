@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "production": "webpack -p",
     "start": "webpack-dev-server"
   },
   "repository": {

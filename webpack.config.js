@@ -5,11 +5,9 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: __dirname + '/app/index.html',
     filename: 'index.html',
     inject: 'body',
-    minify: false
 })
 
 module.exports = {
-    devtool: 'eval-source-map',
     entry: [
         './app/index.js'
     ],
@@ -22,5 +20,7 @@ module.exports = {
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
         ]
     },
-    plugins: [HtmlWebpackPluginConfig]
+    plugins: [
+        HtmlWebpackPluginConfig,
+    ]
 }

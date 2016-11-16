@@ -4,7 +4,8 @@ class GetWeather extends React.Component {
     render() {
         return (
             <div className="text-center">
-                <h1>{this.props.header}</h1>
+                <h1>Weather App</h1>
+                <h2>Enter a City</h2>
                 <form onSubmit={this.props.onSubmitCity} >
                     <input
                         type="text"
