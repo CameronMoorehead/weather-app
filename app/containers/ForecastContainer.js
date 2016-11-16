@@ -9,7 +9,7 @@ class ForecastContainer extends React.Component {
         this.getWeather = this.getWeather.bind(this)
     }
     getWeather() {
-        return console.log(fetchWeather(this.props.params.city).then((response) => response.list))
+        return console.log(fetchWeather(this.props.params.city).then((response) => response.list[0].clouds))
     }
     render() {
         return (
