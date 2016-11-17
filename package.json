@@ -18,6 +18,7 @@
   "homepage": "https://github.com/CameronMoorehead/weatherApp#readme",
   "dependencies": {
     "datejs": "0.0.2",
+    "lodash": "^4.17.2",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^3.0.0"
