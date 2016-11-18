@@ -35,19 +35,20 @@ class ForecastContainer extends React.Component {
     }
 
     handleClickForecast(e) {
-        return console.log("test")
+        return console.log(e.target.id)
     }
 
     render() {
         return (
             <div>
                 <SelectedForecast
-                    weather={this.state.weekWeather}
+                    weather={this.state.selectedWeather}
                     city={this.state.city}
                     country={this.state.country}
                 />
                 <WeekForecast
-                    weather={this.state.weekWeather}
+                    weatherAll={this.state.weekWeather}
+                    weatherSingle={this.state.selectedWeather} 
                     city={this.state.city}
                     country={this.state.country}
                     onClickForecast={this.handleClickForecast}
