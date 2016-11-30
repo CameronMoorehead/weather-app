@@ -1,6 +1,7 @@
 import React from 'react'
 import SelectedForecast from '../components/SelectedForecast'
 import WeekForecast from '../components/WeekForecast'
+import CitySelector from '../components/CitySelector'
 import { fetchWeather } from '../utils/fetchWeather'
 
 class ForecastContainer extends React.Component {
@@ -8,6 +9,7 @@ class ForecastContainer extends React.Component {
         super()
         this.getWeather = this.getWeather.bind(this)
         this.handleClickForecast = this.handleClickForecast.bind(this)
+        this.changeCity = this.changeCity.bind(this)
         this.state = {
             weekWeather: [],
             selectedWeather: {},
@@ -17,6 +19,10 @@ class ForecastContainer extends React.Component {
     }
 
     componentWillMount() {
+        this.getWeather()
+    }
+
+    componentDidUpdate() {
         this.getWeather()
     }
 
@@ -38,6 +44,10 @@ class ForecastContainer extends React.Component {
         return console.log(e.target.id)
     }
 
+    changeCity(city) {
+        this.setState({ city: city })
+    }
+
     render() {
         return (
             <div>
@@ -53,9 +63,14 @@ class ForecastContainer extends React.Component {
                     country={this.state.country}
                     onClickForecast={this.handleClickForecast}
                 />
+                <CitySelector
+                    city={this.state.city}
+                    changeCity={this.changeCity}
+                />
             </div>
         )
     }
 }
+
 
 export default ForecastContainer
