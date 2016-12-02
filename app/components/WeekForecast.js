@@ -4,10 +4,10 @@ class WeekForecast extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.props.onClickForecast}>test</button>
-                <div className='weekDays'>
+                <div className='row'>
+                    <div className='col-lg-3'>test</div>
                     {this.props.weatherAll.map(function(weather, i) {
-                        return <div key={i} id={i} className='weekDay' onClick={this.props.onClickForecast}>
+                        return <div key={i} id={i} className='col-lg-1' onClick={this.props.onClickForecast}>
                             {weather.deg}
                         </div>
                     }.bind(this))}

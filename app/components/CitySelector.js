@@ -9,7 +9,6 @@ class CitySelector extends React.Component {
 
     tester(e) {
         e.preventDefault()
-        console.log(this.city.value)
         this.props.changeCity(this.city.value)
         this.context.router.push({
             pathname: '/' + this.city.value
@@ -19,7 +18,7 @@ class CitySelector extends React.Component {
     render() {
         return (
             <form ref={(input) => this.cityForm = input} onSubmit={(e) => this.tester(e)}>
-                <input ref={(input) => this.city = input} type='text' placeholder={this.props.city} />
+                <input  ref={(input) => this.city = input} type='text' defaultValue={this.props.city} />
             </form>
         )
     }

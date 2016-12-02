@@ -1,5 +1,4 @@
 import React from 'react'
-import SelectedForecast from '../components/SelectedForecast'
 import WeekForecast from '../components/WeekForecast'
 import CitySelector from '../components/CitySelector'
 import { fetchWeather } from '../utils/fetchWeather'
@@ -19,15 +18,11 @@ class ForecastContainer extends React.Component {
     }
 
     componentWillMount() {
-        this.getWeather()
+        this.getWeather(this.props.params.city)
     }
 
-    componentDidUpdate() {
-        this.getWeather()
-    }
-
-    getWeather() {
-            fetchWeather(this.props.params.city)
+    getWeather(cityName) {
+            fetchWeather(cityName)
             .then((response) => {
                 var weather = response.list.map(dayWeather => dayWeather)
 
@@ -45,17 +40,14 @@ class ForecastContainer extends React.Component {
     }
 
     changeCity(city) {
+        console.log('test2')
         this.setState({ city: city })
+        this.getWeather(city)
     }
 
     render() {
         return (
-            <div>
-                <SelectedForecast
-                    weather={this.state.selectedWeather}
-                    city={this.state.city}
-                    country={this.state.country}
-                />
+            <div className='row text-center'>
                 <WeekForecast
                     weatherAll={this.state.weekWeather}
                     weatherSingle={this.state.selectedWeather} 
@@ -64,7 +56,7 @@ class ForecastContainer extends React.Component {
                     onClickForecast={this.handleClickForecast}
                 />
                 <CitySelector
-                    city={this.state.city}
+                    city={this.props.params.city}
                     changeCity={this.changeCity}
                 />
             </div>
