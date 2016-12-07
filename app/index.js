@@ -1,6 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
+import './css/styles.css'
+import './css/weather-icons/css/weather-icons.css'
 
 import GetWeatherContainer from './containers/GetWeatherContainer'
 import ForecastContainer from './containers/ForecastContainer'
