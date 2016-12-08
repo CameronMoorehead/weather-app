@@ -17,9 +17,11 @@ class CitySelector extends React.Component {
 
     render() {
         return (
-            <form ref={(input) => this.cityForm = input} onSubmit={(e) => this.tester(e)}>
-                <input  ref={(input) => this.city = input} type='text' defaultValue={this.props.city} />
-            </form>
+            <div className='city-selector'>
+                <form ref={(input) => this.cityForm = input} onSubmit={(e) => this.tester(e)}>
+                    <input  ref={(input) => this.city = input} type='text' defaultValue={this.props.city} />
+                </form>
+            </div>
         )
     }
 }

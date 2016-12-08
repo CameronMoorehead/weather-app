@@ -10,7 +10,7 @@ class SelectedForecast extends React.Component {
             hi: 'n/a',
             lo: 'n/a',
             description: 'n/a',
-            day: 'n/a'
+            day: 'n/a',
         }
     }
     componentDidUpdate(e) {
@@ -24,7 +24,7 @@ class SelectedForecast extends React.Component {
                 hi: weather.temp.max,
                 lo: weather.temp.min,
                 description: weather.weather[0].description,
-                day: weather.dt
+                day: weather.dt,
             })
     }
     render() {

@@ -1,48 +1,62 @@
+body {
+    background-color: #EEEEEE;
+}
+h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
 .weather-main {
     margin: 0 auto;
-    max-width: 800px;
-    background: lightblue;
+    margin-top: 20px;
+    max-width: 80%;
+    max-height: 80%;
     text-align: center;
 }
-
+[id='0'] {
+    color: red;
+}
 .weather-container {
-    border-style: solid;
-    border-width: 1px;
 }
 .week-weather-container {
-    border-style: solid;
-    border-width: 1px;
 }
 .week-weather {
-    border-style: solid;
-    border-width: 1px;
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 2px 3px 3px black;
+}
+.single-weather {
+    background-color: #FFFFFF;
+    box-shadow: 2px 3px 3px black;
+}
+.city-selector {
+    margin-top: 10px;
 }
 
 @media (min-width: 800px) {
     .weather-container {
         display: flex;
         justify-content: flex-start;
-        border-style: solid;
-        border-width: 1px;
     }
     .week-weather-container {
         display: flex;
         justify-content: space-between;
-        width: 800px;
-        border-style: solid;
-        border-width: 1px;
     }
     .week-weather {
-        padding-right: 5px;
-        border-style: solid;
-        border-width: 1px;
-        width: 90px;
-        height: 300px;
+        width: 14%;
+        height: 400px;
     }
     .single-weather {
-        width: 270px;
-        height: 300px;
+        width: 30%;
+        height: 400px;
     }
 }
