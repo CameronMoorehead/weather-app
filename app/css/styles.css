@@ -61,6 +61,9 @@ a:hover {
 .single-weather h1 {
     font-size: 60px;
 }
+.single-weather h2{
+    padding-top: 20px;
+}
 .single-weather-layout {
     display: flex;
     justify-content: space-around;
