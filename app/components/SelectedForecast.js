@@ -11,6 +11,8 @@ class SelectedForecast extends React.Component {
             lo: 'n/a',
             description: 'n/a',
             day: 'n/a',
+            speed: 'n/a',
+            humidity: 'n/a'
         }
     }
     componentDidUpdate(e) {
@@ -25,6 +27,8 @@ class SelectedForecast extends React.Component {
                 lo: weather.temp.min,
                 description: weather.weather[0].description,
                 day: weather.dt,
+                speed: weather.speed,
+                humidity: weather.humidity
             })
     }
     render() {
@@ -32,11 +36,20 @@ class SelectedForecast extends React.Component {
 
         return (
             <div className='single-weather'>
-                <p>{dayName}</p>
-                <h1 className={getWeatherIcons(this.state.icon)}></h1>
-                <p>Lo: {this.state.lo}</p>
-                <p>Hi: {this.state.hi}</p>
-                <p>{this.state.description}</p>
+                <h2>{this.props.city}</h2>
+                <h4>{dayName}</h4>
+                <div className='single-weather-layout'>
+                    <div>
+                        <h1 className={getWeatherIcons(this.state.icon)}></h1>
+                        <p>Conditions: {this.state.description}</p>
+                    </div>
+                    <div className='single-weather-info'>
+                        <p>Low: {this.state.lo}</p>
+                        <p>High: {this.state.hi}</p>
+                        <p>Speed: {this.state.speed} mph</p>
+                        <p>Humidity: {this.state.humidity}%</p>
+                    </div>
+                </div>
             </div>
         )
     }

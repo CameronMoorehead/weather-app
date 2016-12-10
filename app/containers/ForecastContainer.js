@@ -23,30 +23,36 @@ class ForecastContainer extends React.Component {
     }
 
     getWeather(cityName) {
-            fetchWeather(cityName)
-            .then((response) => {
-                var weather = response.list.map(dayWeather => dayWeather)
+        fetchWeather(cityName)
+        .then((response) => {
+            var weather = response.list.map(dayWeather => dayWeather)
 
-                this.setState({
-                    weekWeather: weather,
-                    selectedWeather: weather[0],
-                    country: response.city.country,
-                    city: response.city.name
-                })
+            this.setState({
+                weekWeather: weather,
+                selectedWeather: weather[0],
+                country: response.city.country,
+                city: response.city.name
             })
+        })
     }
 
     handleClickForecast(e) {
         e.stopPropagation()
-        if (e.target.id)
+        if (e.target.id) {
             this.setState({ selectedWeather: this.state.weekWeather[e.target.id] })
-        else
+            if (document.documentElement.clientWidth < 451)
+                window.scrollTo(0, 0)
+        } else {
             this.setState({ selectedWeather: this.state.weekWeather[e.target.parentNode.id]} )
+            if (document.documentElement.clientWidth < 451)
+                window.scrollTo(0, 0)
+        }
     }
 
     changeCity(city) {
         this.setState({ city: city })
-        this.getWeather(city)
+        if (document.documentElement.clientWidth < 451)
+            window.scrollTo(0, 0)
     }
 
     render() {
@@ -55,6 +61,7 @@ class ForecastContainer extends React.Component {
                 <div className='weather-container'>
                     <SelectedForecast
                         weatherSingle={this.state.selectedWeather} 
+                        city={this.state.city}
                     />
                     <WeekForecast
                         weatherAll={this.state.weekWeather}
