@@ -9,6 +9,7 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
     entry: [
+        'whatwg-fetch',
         './app/index.js'
     ],
     output: {

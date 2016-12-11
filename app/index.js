@@ -6,6 +6,7 @@ import './css/weather-icons/css/weather-icons.css'
 
 import GetWeatherContainer from './containers/GetWeatherContainer'
 import ForecastContainer from './containers/ForecastContainer'
+import 'whatwg-fetch'
 
 const Root = () => {
     return (
