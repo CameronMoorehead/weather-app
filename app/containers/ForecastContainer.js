@@ -12,7 +12,7 @@ class ForecastContainer extends React.Component {
         this.changeCity = this.changeCity.bind(this)
         this.state = {
             weekWeather: [],
-            selectedWeather: {},
+            selectedWeather: [],
             city: '',
             country: ''
         }
@@ -29,7 +29,7 @@ class ForecastContainer extends React.Component {
 
             this.setState({
                 weekWeather: weather,
-                selectedWeather: weather[0],
+                selectedWeather: [weather[0]],
                 country: response.city.country,
                 city: response.city.name
             })
@@ -37,7 +37,7 @@ class ForecastContainer extends React.Component {
     }
 
     handleClickForecast(e) {
-        this.setState({ selectedWeather: this.state.weekWeather[e.target.id] })
+        this.setState({ selectedWeather: [this.state.weekWeather[e.target.id]] })
         if (document.documentElement.clientWidth < 451)
                 window.scrollTo(0, 0)
     }
