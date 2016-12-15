@@ -11,8 +11,8 @@ class WeekForecast extends React.Component {
                             <p className='date'>{Moment(weather.dt * 1000).format('dddd')}</p>
                             <h1 className={getWeatherIcons(weather.weather[0].icon)}></h1>
                             <div className='week-temp'>
-                                <p id={i}><span id={i} style={{color: '#34495E'}}>Low:</span> {weather.temp.min}°</p>
-                                <p id={i}><span id={i} style={{color: '#E74C3C'}}>High:</span> {weather.temp.max}°</p>
+                                <p><span style={{color: '#34495E'}}>Low:</span> {weather.temp.min}°</p>
+                                <p><span style={{color: '#E74C3C'}}>High:</span> {weather.temp.max}°</p>
                             </div>
                             <p className='week-desc'>{weather.weather[0].description}</p>
                     </a>

@@ -37,15 +37,9 @@ class ForecastContainer extends React.Component {
     }
 
     handleClickForecast(e) {
-        if (e.target.id) {
-            this.setState({ selectedWeather: this.state.weekWeather[e.target.id] })
-            if (document.documentElement.clientWidth < 451)
+        this.setState({ selectedWeather: this.state.weekWeather[e.target.id] })
+        if (document.documentElement.clientWidth < 451)
                 window.scrollTo(0, 0)
-        } else {
-            this.setState({ selectedWeather: this.state.weekWeather[e.target.parentNode.id]} )
-            if (document.documentElement.clientWidth < 451)
-                window.scrollTo(0, 0)
-        }
     }
 
     changeCity(city) {
